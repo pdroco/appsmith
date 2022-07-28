@@ -182,6 +182,5 @@
   "saveThemeBtn": ".t--save-theme-btn",
   "selectThemeBackBtn": ".t--theme-select-back-btn",
   "themeAppBorderRadiusBtn": ".t--theme-appBorderRadius",
-  "codeEditorWrapper": ".unfocused-code-editor",
-  "expandMore": "[name='expand-more']"
+  "codeEditorWrapper": ".unfocused-code-editor"
 }
