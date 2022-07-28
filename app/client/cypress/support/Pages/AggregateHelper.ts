@@ -517,7 +517,7 @@ export class AggregateHelper {
       subAction = "Are you sure?";
     }
     if (subAction) {
-      cy.xpath(this.locator._visibleTextDiv(subAction)).click();
+      cy.xpath(this.locator._contextMenuSubItemDiv(subAction)).click({force: true});
       this.Sleep(500);
     }
     if (action == "Delete") {
