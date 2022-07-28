@@ -1,5 +1,7 @@
 import { ObjectsRegistry } from "../../../../support/Objects/Registry";
+import ApiEditor from "../../../../locators/ApiEditor";
 const commonLocators = require("../../../../locators/commonlocators.json");
+const jsEditorLocator = require("../../../../locators/JSEditor.json");
 
 const {
   AggregateHelper: agHelper,
@@ -32,9 +34,7 @@ describe("Copy Action/JS objects to different pages", () => {
     apiPage.CreateAndFillApi("https://randomuser.me/api/", "get_data");
     cy.wait(3000);
 
-    cy.get(".t--more-action-menu")
-      .first()
-      .click({ force: true });
+    cy.get(ApiEditor.ApiActionMenu).click({ multiple: true });
 
     agHelper.SelectDropDown("Copy to page");
     agHelper.SelectDropDown("Page1");
@@ -52,6 +52,7 @@ describe("Copy Action/JS objects to different pages", () => {
     cy.wait("@getPage");
 
     jsEditor.CreateJSObject('return "Hello World";');
+    cy.wait(3000);
 
     cy.get(`${commonLocators.entityItem}:contains('JSObject1')`).within(() => {
       cy.get(commonLocators.entityContextMenu).click({ force: true });
@@ -78,9 +79,7 @@ describe("Copy Action/JS objects to different pages", () => {
       .eq(1)
       .click({ force: true });
 
-    cy.get(".t--more-action-menu")
-      .first()
-      .click({ force: true });
+    cy.get(jsEditorLocator.jsActionMenu).click({ multiple: true });
 
     agHelper.SelectDropDown("Copy to page");
     agHelper.SelectDropDown("Page1");
